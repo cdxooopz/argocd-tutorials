@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: dev-nodejs-tutorials
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  labels:
+    name: dev-nodejs-tutorials
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/cdxooopz/argocd-tutorials.git
+    targetRevision: HEAD  
+    path: config/dev-nodejs-tutorials  
+    directory:
+      recurse: true
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: application-dev
+  syncPolicy:
+    automated: 
+      prune: true 
+      selfHeal: true 
+    syncOptions:     
+    - CreateNamespace=true 
