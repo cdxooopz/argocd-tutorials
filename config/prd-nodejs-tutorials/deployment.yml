@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: nodejs-tutorialspoint
-          image: "290882575675.dkr.ecr.ap-southeast-1.amazonaws.com/nodejs-tutorialspoint-kamin:latest"
+          image: "997305327977.dkr.ecr.ap-southeast-1.amazonaws.com/nodejs-tutorials:latest"
           ports:
             - name: http
               containerPort: 8081
